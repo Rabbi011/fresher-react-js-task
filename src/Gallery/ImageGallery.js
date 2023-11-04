@@ -75,13 +75,16 @@ const ImageGallery = () => {
   const [imgList, setImgList] = useState(data);
   const [select, setSelect] = useState([]);
   const handleUpload = (e) => {
-    const data = {
-      id: Math.floor(Math.random() * 100 + 1),
-      url: e.target.files[0],
-      check: false,
-    };
-    setImgList([...imgList, data]);
-  };
+    if(e.target.files[0]){
+        const data = {
+            id: Math.floor(Math.random() * 100 + 1),
+            url: e.target.files[0],
+            check: false,
+          };
+          setImgList([...imgList, data]);
+        };
+    }
+    
 
   const handleDelete = () => {
     const id = select.map((data) => {
